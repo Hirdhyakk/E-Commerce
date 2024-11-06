@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-Commerce</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .invalid {
+      border-color: red;
+    }
+
+    .valid {
+      border-color: green;
+    }
+
+    #passwordError {
+      color: red;
+      display: none;
+    }
+
+    #passwordSuccess {
+      color: green;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand me-2" href="/">
+        <span class="text-primary fs-3 fw-semibold">E-Commerce</span>
+      </a>
+
+      <!-- Toggle button -->
+      <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <!-- Centered search bar -->
+        <div class="d-flex mx-auto">
+          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit">Search</button> -->
+        </div>
+        <!-- Centered search bar -->
+
+        <div class="d-flex align-items-center">
+
+          <% if(isAuthenticated) { %>
+          <div class="container-fluid">
+            <ul class="navbar-nav">
+              <!-- Cart -->
+              <!-- <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-shopping-cart"></i>
+                </a>
+              </li> -->
+
+              <!-- Icon dropdown -->
+              <!-- <li class="nav-item me-3 me-lg-0 dropdown">
+                <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-expanded="false">
+                  <i class="fas fa-user"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item" href="#">Action</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Another action</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li> -->
+
+              <!-- Avatar -->
+              <!-- <li class="nav-item dropdown">
+                <a href="/profile" class="nav-link d-flex align-items-center" role="button">
+                  <img src="../..<%= user.profilePicture %>" class="rounded-circle" height="25" width="25" alt="Portrait of a Woman" loading="lazy" />
+                  <span class="ms-1"><%= user.name %></span>
+                </a>
+              </li> -->
+
+              <!-- Icon dropdown -->
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="<%= user.profilePicture ? user.profilePicture : '/uploads/user/default-profile.jpg' %>" class="rounded-circle" height="25" width="25" alt="User Profile" loading="lazy" />
+                  <span class="ms-1"><%= user.name %></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                  <li><a class="dropdown-item" href="/">Home</a></li>
+                  <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </div>
+          <% } else { %>
+          <button data-mdb-ripple-init type="button" class="btn btn-outline-primary px-3 me-2" onclick="window.location.href='/auth/login'">
+            Login
+          </button>
+          <button data-mdb-ripple-init type="button" class="btn btn-primary" onclick="window.location.href='/auth/signup'">
+            Sign up for free
+          </button>
+          <% } %>
+        </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+
+  <!-- <div class="container my-5"> -->
+
+  <!-- <%= user %> -->
+
+  <div class="main-body container my-5">
+
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+
+            <!-- <% if (user.isSeller) { %>
+              <a class="btn btn-primary" href="/seller">Dashboard</a>
+              <% } %>
+
+              <% if (user.isAdmin) { %>
+              <a class="btn btn-primary" href="/admin">Dashboard</a>
+              <% } %> -->
+
+            <a class="btn btn-danger" href="/auth/logout">Logout</a>
+
+            <div class="d-flex flex-column align-items-center text-center mt-4">
+              <img src='../..<%= user.profilePicture %>' alt="Admin" class="rounded-5" height="150">
+              <div class="mt-3">
+                <h4><%= user.name %></h4>
+                <p class="text-secondary mb-1">Joined on: <%= new Date(user.createdAt).toLocaleDateString() %></p>
+                <input type="file" id="image" name="image" accept=".jpg, image/jpeg" class="d-none" required />
+                <button class="btn btn-outline-primary" id="uploadBtn">Update Photo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%= user.name %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%= user.email %>
+              </div>
+            </div>
+            <hr>
+            <!-- <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Phone</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  (239) 816-9029
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Mobile</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  (320) 380-4539
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Address</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  Bay Area, San Francisco, CA
+                </div>
+              </div> -->
+            <!-- <hr> -->
+            <div class="row">
+              <div class="col-sm-12">
+
+                <a class="pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button class="btn btn-primary">Change Password</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered mt-0">
+      <div class="modal-content mb-5">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="changePasswordForm">
+            <div class="mb-3">
+              <label for="currentPassword" class="form-label">Current Password</label>
+              <input type="password" class="form-control" id="currentPassword" name="currentPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="newPassword" class="form-label">New Password</label>
+              <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm New Password</label>
+              <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <div id="passwordError" class="text-danger mb-3" style="display: none;">Passwords do not match!</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.umd.min.js"></script>
+
+  <script>
+    document.getElementById('uploadBtn').addEventListener('click', function() {
+      document.getElementById('image').click(); // Trigger file input click
+    });
+
+    document.getElementById('image').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+
+      if (file) {
+        const fileType = file.type;
+        const fileName = file.name.toLowerCase();
+        const validExtensions = ['.jpg', '.jpeg']; // Only allow .jpg and .jpeg extensions
+
+        // Check if the file extension is .jpg or .jpeg
+        if (!validExtensions.some(ext => fileName.endsWith(ext))) {
+          alert('Only JPG files are allowed!');
+          event.target.value = ''; // Reset the input if it's not a .jpg or .jpeg
+          return;
+        }
+
+        const userId = '<%= user._id %>';
+        const formData = new FormData();
+        formData.append('image', file);
+        formData.append('userId', userId); // Include user ID
+
+        // console.log(userId, formData);
+
+        fetch(`http://localhost:3000/uploadPhoto/${userId}`, {
+            method: 'POST',
+            body: formData,
+          })
+          .then(response => response.json())
+          .then(data => {
+            // console.log('Success:', data);
+            location.reload();
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      }
+    });
+
+    document.getElementById('changePasswordForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const currentPassword = document.getElementById('currentPassword').value;
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const passwordError = document.getElementById('passwordError');
+      const passwordSuccess = document.getElementById('passwordSuccess');
+
+      // console.log(currentPassword, newPassword, confirmPassword, passwordError);
+
+      // Check if new password and confirm password match
+      if (!validatePassword(newPassword)) {
+        passwordError.textContent = 'Password must be at least 8 characters, contain at least one uppercase letter, one lowercase letter, one number, and one special character.';
+        passwordError.style.display = 'block';
+        return;
+      } else if (newPassword !== confirmPassword) {
+        passwordError.textContent = 'Passwords do not match!';
+        passwordError.style.display = 'block'; // Show error message
+        return;
+      }
+
+      // Hide the error message if the passwords match
+      passwordError.style.display = 'none';
+
+      const userId = '<%= user._id %>'; // Fetch userId from the EJS template
+
+      // Send the form data to the backend
+      fetch(`http://localhost:3000/changePassword`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            currentPassword: currentPassword,
+            newPassword: newPassword,
+            userId: userId,
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert('Password changed successfully!');
+            location.reload(); // Reload the page
+          } else {
+            alert(data.message); // Show error message from backend
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    });
+
+    // Password validation function
+    function validatePassword(password) {
+      // Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+      return passwordRegex.test(password);
+    }
+
+    // Real-time validation
+    const newPasswordInput = document.getElementById('newPassword');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const passwordError = document.getElementById('passwordError');
+
+    newPasswordInput.addEventListener('input', function() {
+      if (validatePassword(newPasswordInput.value)) {
+        newPasswordInput.classList.add('valid');
+        newPasswordInput.classList.remove('invalid');
+        passwordError.style.display = 'none';
+      } else {
+        newPasswordInput.classList.add('invalid');
+        newPasswordInput.classList.remove('valid');
+        passwordError.textContent = 'Password must be at least 8 characters, contain at least one uppercase letter, one lowercase letter, one number, and one special character.';
+        passwordError.style.display = 'block';
+      }
+    });
+
+    confirmPasswordInput.addEventListener('input', function() {
+      if (newPasswordInput.value === confirmPasswordInput.value) {
+        confirmPasswordInput.classList.add('valid');
+        confirmPasswordInput.classList.remove('invalid');
+        passwordError.style.display = 'none';
+      } else {
+        confirmPasswordInput.classList.add('invalid');
+        confirmPasswordInput.classList.remove('valid');
+        passwordError.textContent = 'Passwords do not match!';
+        passwordError.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+
+</html>

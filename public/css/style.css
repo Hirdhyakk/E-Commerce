@@ -1,0 +1,19 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pointer {
+	cursor: pointer;
+	transition-duration: 1.5s;
+}
+.pointer:hover {
+	scale: 1.05;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+}

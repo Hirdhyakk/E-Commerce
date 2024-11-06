@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signup</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="vh-100" style="background-color: #eee;">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">SIGN UP</p>
+
+                  <form class="mx-1 mx-md-4" id="signupForm" action="" method="POST">
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-users fa-lg me-3 fa-fw"></i>
+                      <div class="flex-fill mb-0">
+                        <label class="form-label" for="roleSelection">Sign up as:</label>
+                        <select id="roleSelection" class="form-select" required>
+                          <option value="user" selected>User</option>
+                          <option value="seller">Seller</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <input type="text" id="form3Example1c" class="form-control" required />
+                        <label class="form-label" for="form3Example1c">Your Name</label>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <input type="email" id="form3Example3c" class="form-control" required />
+                        <label class="form-label" for="form3Example3c">Your Email</label>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <input type="password" id="form3Example4c" class="form-control" required />
+                        <label class="form-label" for="form3Example4c">Password</label>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <input type="password" id="form3Example4cd" class="form-control" required />
+                        <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      </div>
+                    </div>
+
+                    <div class="form-check d-flex justify-content-center mb-5">
+                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" required />
+                      <label class="form-check-label" for="form2Example3c">
+                        I agree all statements in <a href="#!">Terms of service</a>
+                      </label>
+                    </div>
+
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <button type="submit" class="btn btn-primary btn-lg" id="verifyEmailBtn">Verify Email</button>
+                    </div>
+
+                    <div class="form-check d-flex justify-content-center mb-5">
+                      <p class="mb-0">
+                        Already have an account &nbsp;<a href="/auth/login">Login</a>
+                      </p>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                  <img src="/images/signup.jpg" class="img-fluid" alt="Sample image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="toastAlert" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Alert</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Your alert message will appear here.
+      </div>
+    </div>
+  </div> -->
+
+  <div class="toast-container position-fixed top-0 end-0 mt-4 me-3">
+    <div id="toastAlert" class="toast fs-5" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-body">
+        Your alert message will appear here.
+      </div>
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script>
+    // Select the toast element
+    const toastElement = document.getElementById('toastAlert');
+    const toastInstance = new bootstrap.Toast(toastElement);
+
+    // Function to show the toast
+    function showToast(message, type = 'success') {
+      const toastBody = document.querySelector('.toast-body');
+      // const toastHeader = toastElement.querySelector('.toast-header');
+
+      // Clear previous classes
+      toastBody.classList.remove('bg-danger', 'bg-success', 'text-white');
+      // toastHeader.classList.remove('bg-danger', 'bg-success');
+
+      // Add class based on type
+      if (type === 'success') {
+        toastBody.classList.add('bg-success', 'text-white');
+        // toastHeader.classList.add('bg-success', 'text-white');
+      } else if (type === 'error') {
+        toastBody.classList.add('bg-danger', 'text-white');
+        // toastHeader.classList.add('bg-danger', 'text-white');
+      }
+
+      // Set the message inside the toast body
+      toastBody.innerText = message;
+
+      // Show the toast
+      toastInstance.show();
+    }
+
+    // Function to show the loading toast
+    function showLoadingToast() {
+      const toastBody = document.querySelector('.toast-body');
+
+      // Clear previous classes and set loading styles
+      toastBody.classList.remove('bg-danger', 'bg-success', 'text-white');
+      toastBody.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...'; // Loading spinner
+
+      // Show the loading toast
+      toastInstance.show();
+    }
+
+    localStorage.removeItem('user');
+
+    document.getElementById('signupForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('form3Example1c').value;
+      const email = document.getElementById('form3Example3c').value;
+      const password = document.getElementById('form3Example4c').value;
+      const confirmPassword = document.getElementById('form3Example4cd').value;
+      const role = document.getElementById('roleSelection').value;
+
+      // 8-15 characters, at least one uppercase letter, one lowercase letter, one number, and one special character.
+      const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
+
+      if (!passwordRegex.test(password)) {
+        // return alert('Password must be 8-15 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
+        // Show the toast
+        showToast('Password must be 8-15 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.', 'error');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showToast('Passwords do not match!', 'error');
+        return;
+      }
+
+      const user = {
+        name,
+        email,
+        password,
+        role,
+      };
+
+      try {
+        // Show loading toast before making the API call
+        showLoadingToast();
+
+        const response = await fetch('/auth/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(user),
+        });
+
+        if (!response.ok) {
+          const errorResponse = await response.json();
+          throw new Error(errorResponse.message || 'An error occurred');
+        }
+
+        const data = await response.json(); // Get the JSON response
+
+        // alert(data.message);
+        showToast(data.message, 'success');
+
+        user.password = '';
+        localStorage.setItem('user', JSON.stringify(user));
+
+        // Wait for 3 seconds before redirecting
+        setTimeout(() => {
+          window.location.href = data.redirect; // Redirect using the URL from the response
+        }, 3000); // 3000 milliseconds = 3 seconds
+
+      } catch (error) {
+        // console.error('Error: ', error);
+        showToast(`Error: ${error.message}`, 'error');
+      }
+    });
+  </script>
+</body>
+
+</html>
