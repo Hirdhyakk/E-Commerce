@@ -239,7 +239,7 @@
 
     function handleRemove(productId) {
       showLoadingToast();
-      fetch('http://localhost:3000/cart/remove', {
+      fetch('/cart/remove', {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
@@ -272,7 +272,7 @@
 
     function handleAdd(productId) {
       showLoadingToast();
-      fetch('http://localhost:3000/cart/update', {
+      fetch('/cart/update', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -300,7 +300,7 @@
 
     function handleSub(productId) {
       showLoadingToast();
-      fetch('http://localhost:3000/cart/update', {
+      fetch('/cart/update', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -328,7 +328,7 @@
 
     function placeOrder() {
       showLoadingToast();
-      fetch('http://localhost:3000/order/createOrder', {
+      fetch('/order/createOrder', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
