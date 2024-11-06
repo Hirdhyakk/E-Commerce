@@ -6,7 +6,7 @@ const addToCart = async (req, res) => {
     const userId = req.user._id;
     const { productId, quantity } = req.body;
 
-    // console.log(userId, productId, quantity);
+    console.log(userId, productId, quantity);
 
     try {
         // Find the user's cart
