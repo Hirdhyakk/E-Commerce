@@ -285,7 +285,7 @@
 
         // console.log(userId, formData);
 
-        fetch(`http://localhost:3000/uploadPhoto/${userId}`, {
+        fetch(`/uploadPhoto/${userId}`, {
             method: 'POST',
             body: formData,
           })
@@ -328,7 +328,7 @@
       const userId = '<%= user._id %>'; // Fetch userId from the EJS template
 
       // Send the form data to the backend
-      fetch(`http://localhost:3000/changePassword`, {
+      fetch(`/changePassword`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
