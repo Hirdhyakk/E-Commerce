@@ -51,3 +51,41 @@ To set up this project locally, follow these steps:
 git clone https://github.com/Hirdhyakk/E-Commerce.git
 cd E-Commerce
 ```
+
+### Install Dependencies
+
+Navigate to the project directory and install all the required dependencies using npm:
+
+```bash
+npm install
+```
+
+### Set Up Environment Variables
+
+Create a .env file in the root of the project directory and add the following environment variables:
+
+```bash
+PORT=5000
+MONGO_URI=<your-mongodb-connection-string>
+RAZORPAY_KEY_ID=<your-razorpay-key-id>
+RAZORPAY_KEY_SECRET=<your-razorpay-key-secret>
+SESSION_SECRET=<your-session-secret>
+```
+
+- Replace <your-mongodb-connection-string> with your MongoDB URI.
+- Replace <your-razorpay-key-id> and <your-razorpay-key-secret> with your Razorpay credentials (you can get them from Razorpay's dashboard).
+- Set a random string for the SESSION_SECRET to manage session data securely.
+
+## Run the Application
+
+Once everything is set up, you can start the application by running:
+
+```bash
+npm start
+```
+
+This will launch the application in your browser.
+
+## Contributing
+
+If you’d like to contribute to this project, feel free to fork the repository, make your changes, and submit a pull request. Contributions, suggestions, and improvements are always welcome!
