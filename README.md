@@ -65,11 +65,10 @@ npm install
 Create a .env file in the root of the project directory and add the following environment variables:
 
 ```bash
-PORT=5000
 MONGO_URI=<your-mongodb-connection-string>
-RAZORPAY_KEY_ID=<your-razorpay-key-id>
-RAZORPAY_KEY_SECRET=<your-razorpay-key-secret>
-SESSION_SECRET=<your-session-secret>
+GMAIL_USER=
+GMAIL_PASS=
+JWT_SECRET=
 ```
 
 - Replace <your-mongodb-connection-string> with your MongoDB URI.
