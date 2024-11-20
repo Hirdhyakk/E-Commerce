@@ -222,7 +222,7 @@ const resetPass = async (req, res) => {
         user.resetTokenExpiration = Date.now() + 3600000; // 1 hour expiration
         await user.save(); // Save the user with the reset token
 
-        const resetLink = `http://localhost:3000/auth/reset-password/${resetToken}`;
+        const resetLink = `https://e-commerce-vtfr.onrender.com/auth/reset-password/${resetToken}`;
 
         const mailOptions = {
             from: 'hirdhyak@gmail.com',
