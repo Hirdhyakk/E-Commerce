@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
         user: "hirdhyak@gmail.com",
-        pass: "focxxigoqdnxfaiy",
+        pass: "illfrephvgqdqptz",
     },
 });
 
@@ -285,3 +285,4 @@ module.exports = {
     resetPass,
     submitNewPassword,
 };
+
