@@ -8,12 +8,19 @@ const otpStore = new Map();
 
 // Configure nodemailer
 const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: "hirdhyak@gmail.com",
-        pass: "illfrephvgqdqptz",
-    },
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // true for 465
+  auth: {
+    user: "hirdhyak@gmail.com",
+    pass: "illfrephvgqdqptz", // App password, not your Gmail password
+  },
+  tls: {
+    rejectUnauthorized: false, // helps if Render's network causes SSL issues
+  },
+  connectionTimeout: 20000, // 20s
 });
+
 
 // Generate OTP function
 function generateOTP(length = 6) {
@@ -285,4 +292,5 @@ module.exports = {
     resetPass,
     submitNewPassword,
 };
+
 
